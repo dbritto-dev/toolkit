@@ -14,7 +14,7 @@ export class Context {
   ref: string
   refName: string
   refType: string
-  refProtected
+  refProtected: boolean
   workflow: string
   action: string
   actor: string
@@ -45,7 +45,9 @@ export class Context {
     this.ref = process.env.GITHUB_REF as string
     this.refName = process.env.GITHUB_REF_NAME as string
     this.refType = process.env.GITHUB_REF_TYPE as string
-    this.refProtected = new Boolean(process.env.GITHUB_REF_PROTECTED as string)
+    this.refProtected = new Boolean(
+      process.env.GITHUB_REF_PROTECTED as string
+    ) as boolean
     this.workflow = process.env.GITHUB_WORKFLOW as string
     this.action = process.env.GITHUB_ACTION as string
     this.actor = process.env.GITHUB_ACTOR as string
